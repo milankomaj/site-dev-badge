@@ -26,6 +26,11 @@ const displaybadges = (badges) => {
               <h3>${badge.handler}</h3>
               <a href="${badge.url}"><span>${badge.case}</span></a>`
         }
+        if (badge.icon) {
+            listItem.innerHTML += `<figure>
+            <img src=${badge.icon} loading="auto" alt="icon" height="auto" width="40" style="background:var(--accent); border-radius:5%; border:7px solid var(--accent);"/>
+            </figure>`
+        }
         if (badge.status != "#NAME?") {
             listItem.innerHTML += `
               <p>${badge.status}</p>`
@@ -34,6 +39,8 @@ const displaybadges = (badges) => {
             listItem.innerHTML += `
               <p>* ${badge.info}</p>`
         }
+
+
         badgeList.append(listItem);
     }
 };
