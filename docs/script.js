@@ -1,6 +1,7 @@
 const badgeList = document.querySelector('.badge-list');
 const filterInput = document.querySelector('.filter-badges');
 // get list of user's public badges
+const loaderel = document.querySelector("#loader");
 const getbadges = async () => {
     let badges = [];
     let res;
@@ -10,6 +11,7 @@ const getbadges = async () => {
     let data = await res.json();
     badges = data;
     displaybadges(badges);
+    loaderel.style.display = "none";
 };
 getbadges();
 // display list of all user's public badges
@@ -56,16 +58,5 @@ filterInput.addEventListener('input', (e) => {
         } else {
             badge.classList.add('hide');
         }
-    }
-});
-// loader spinner
-window.addEventListener("load", function () {
-    const loaderel = document.querySelector("#loader");
-    const v2 = (window.performance.getEntriesByType("navigation")[0].domComplete);
-    const v1 = (window.performance.timing.domComplete - window.performance.timing.navigationStart)
-    if (v2 || v1) {
-        loaderel.style.display = "none";
-        console.log(JSON.parse(JSON.stringify('v1 ⏲  ' + v1 + " ms")))
-        console.log(JSON.parse(JSON.stringify('v2 ⏲  ' + (window.performance.getEntriesByType("navigation")[0].domComplete + " ms"))))
     }
 });
