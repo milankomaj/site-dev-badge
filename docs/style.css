@@ -238,7 +238,7 @@ h3 {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 30vh;
     width: 100%;
     background-color: var(--bg-main);
     display: flex;
